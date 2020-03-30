@@ -54,6 +54,10 @@ server
             ? `<script src="${assets.client.js}" defer></script>`
             : `<script src="${assets.client.js}" defer crossorigin></script>`
         }
+        <script src="https://dmx-microfrontend.s3.amazonaws.com/react.development.js"></script>
+        <script src="https://dmx-microfrontend.s3.amazonaws.com/react-dom.development.js"></script>
+        <script src="https://dmx-microfrontend.s3.amazonaws.com/react-router-dom.js"></script>
+    
     </head>
     <body>
         <div id="root">${markup}</div>
