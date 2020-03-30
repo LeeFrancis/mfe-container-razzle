@@ -3,8 +3,15 @@ import React from "react";
 import { StaticRouter } from "react-router-dom";
 import express from "express";
 import { renderToString } from "react-dom/server";
+import serialize from "serialize-javascript"; // Safer stringify, prevents XSS attacks
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
+// Grab all the env config objects we are interested in for MFE's
+const mfeConfig = Object.entries(process.env || {})
+  .filter(entry => entry[0].startsWith("RAZZLE_MFE_"))
+  .reduce(function(obj, entry) {
+    return { ...obj, [entry[0]]: entry[1] };
+  }, {});
 
 const server = express();
 server
@@ -50,6 +57,7 @@ server
     </head>
     <body>
         <div id="root">${markup}</div>
+        <script>window.env = ${serialize(mfeConfig)};</script>
     </body>
 </html>`
       );

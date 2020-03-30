@@ -6,13 +6,14 @@ import MenuContainer from "../menu";
 import { MicroFrontEnd } from "discover.medical.shared-mfe-lib";
 import Footer from "../footer";
 import { AppBar, Logo, Flex } from "discover.medical.react-component-library";
+import { envConfig } from "../../config/env";
 
-const dhHomeHost = process.env.RAZZLE_APP_DH_HOME;
-const drugDetailHost = process.env.RAZZLE_APP_DRUG_DETAIL;
-const imgPath = process.env.RAZZLE_APP_IMAGE_PATH;
-const dmxHomeHost = process.env.RAZZLE_APP_DMX_HOME;
-const dhSkillsHost = process.env.RAZZLE_APP_DH_SKILLS;
-const searchHost = process.env.RAZZLE_APP_SEARCH;
+const dhHomeHost = envConfig.get("RAZZLE_MFE_DH_HOME");
+const drugDetailHost = envConfig.get("RAZZLE_MFE_DRUG_DETAIL");
+const imgPath = envConfig.get("RAZZLE_MFE_IMAGE_PATH");
+const dmxHomeHost = envConfig.get("RAZZLE_MFE_DMX_HOME");
+const dhSkillsHost = envConfig.get("RAZZLE_MFE_DH_SKILLS");
+const searchHost = envConfig.get("RAZZLE_MFE_SEARCH");
 
 const Wrapper = () => (
   <Flex container column maxWidth={false} flexGrow>
@@ -75,7 +76,7 @@ const Results = () => (
       mfeHost={{
         name: "Search",
         host: searchHost,
-        path: process.env.RAZZLE_APP_SEARCH_PATH
+        path: envConfig.get("RAZZLE_MFE_SEARCH_PATH")
       }}
     />
     <MicroFrontEnd
@@ -86,7 +87,7 @@ const Results = () => (
       mfeHost={{
         name: "Search",
         host: searchHost,
-        path: process.env.RAZZLE_APP_SEARCH_PATH
+        path: envConfig.get("RAZZLE_MFE_SEARCH_PATH")
       }}
     />
   </>
@@ -103,7 +104,7 @@ const PATHNAMES = [
       mfeHost: {
         name: "DHHome",
         host: dhHomeHost,
-        path: process.env.RAZZLE_APP_DH_HOME_PATH
+        path: envConfig.get("RAZZLE_MFE_DH_HOME_PATH")
       }
     }
   },
@@ -117,7 +118,7 @@ const PATHNAMES = [
       mfeHost: {
         name: "DrugDetail",
         host: drugDetailHost,
-        path: process.env.RAZZLE_APP_DRUG_DETAIL_PATH
+        path: envConfig.get("RAZZLE_MFE_DRUG_DETAIL_PATH")
       }
     }
   },
@@ -132,7 +133,7 @@ const PATHNAMES = [
       mfeHost: {
         name: "DHSkills",
         host: dhSkillsHost,
-        path: process.env.RAZZLE_APP_DH_SKILLS_PATH
+        path: envConfig.get("RAZZLE_MFE_DH_SKILLS_PATH")
       }
     }
   },
@@ -151,7 +152,7 @@ const PATHNAMES = [
       mfeHost: {
         name: "DMXHome",
         host: dmxHomeHost,
-        path: process.env.RAZZLE_APP_DMX_HOME_PATH
+        path: envConfig.get("RAZZLE_MFE_DMX_HOME_PATH")
       }
     }
   }
