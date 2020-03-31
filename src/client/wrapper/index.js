@@ -14,6 +14,7 @@ const imgPath = envConfig.get("RAZZLE_MFE_IMAGE_PATH");
 const dmxHomeHost = envConfig.get("RAZZLE_MFE_DMX_HOME");
 const dhSkillsHost = envConfig.get("RAZZLE_MFE_DH_SKILLS");
 const searchHost = envConfig.get("RAZZLE_MFE_SEARCH");
+const test = process.env.RAZZLE_MFE_SEARCH;
 
 const Wrapper = () => (
   <Flex container column maxWidth={false} flexGrow>
