@@ -1,7 +1,5 @@
 import React from "react";
 import Wrapper from "./client/wrapper";
-import Route from "react-router-dom/Route";
-import Switch from "react-router-dom/Switch";
 import "discover.medical.react-component-library/lib/index.dmp.css";
 
 import { MFEManager, MFEContext } from "discover.medical.shared-mfe-lib";
